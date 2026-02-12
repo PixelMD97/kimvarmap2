@@ -174,3 +174,22 @@ if st.button("🚀 Propose Selected"):
         st.success("Proposal created.")
     except Exception as e:
         st.error(str(e))
+
+
+st.markdown("---")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("← Back to Overview"):
+        if st.session_state.get("mapping_dirty"):
+            st.warning("You have unsaved changes.")
+            st.stop()
+        st.switch_page("pages/1_overview.py")
+
+with col2:
+    if st.button("Continue to Granularity →"):
+        if st.session_state.get("mapping_dirty"):
+            st.warning("You have unsaved changes.")
+            st.stop()
+        st.switch_page("pages/3_granularity.py")
